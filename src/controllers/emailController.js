@@ -111,7 +111,10 @@ exports.sendEmail = async (req, res) => {
         await email.save();
 
         // Send response back
-        res.status(200).send('Email sent successfully!');
+        res.status(200).json({
+            message: 'Email sent successfully!',
+            emailId: emailId 
+          });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error sending email.');

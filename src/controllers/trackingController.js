@@ -5,8 +5,6 @@ exports.trackOpen = async (req, res) => {
     const emailId = req.params.id;
     try {
         const email = await Email.findById(emailId);
-        console.log(email);
-        
         if (email && !email.openedAt) {
             email.status = 'Opened';
             email.openedAt = new Date();
